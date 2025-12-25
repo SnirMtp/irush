@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הפתעה לגירוד: אירה</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;600&family=Varela+Round&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at center, #2b1055, #7597de);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Varela Round', sans-serif;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .container {
+            position: relative;
+            width: 320px;
+            height: 480px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border-radius: 15px;
+            background: #fff;
+            overflow: hidden;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* --- The Hidden Content (Bottom Layer) --- */
+        .hidden-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(180deg, #fff 0%, #f0f0f0 100%);
+            z-index: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .hidden-content h2 {
+            margin: 0;
+            color: #ff4081;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .icon-group {
+            font-size: 3.5rem;
+            margin: 20px 0;
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
+        }
+
+        .details {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .date-box {
+            background: #2b1055;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(43, 16, 85, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .note {
+            font-size: 0.8rem;
+            color: #999;
+            font-style: italic;
+        }
+
+        /* --- The Scratch Layer (Top Layer) --- */
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            cursor: pointer;
+            border-radius: 15px;
+            transition: opacity 1s;
+        }
+        
+        canvas.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Decorative header outside the card */
+        .page-title {
+            position: absolute;
+            top: 30px;
+            color: white;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            text-align: center;
+            width: 100%;
+            pointer-events: none;
+        }
+
+        .hand-hint {
+            position: absolute;
+            bottom: 20%;
+            right: 20%;
+            font-size: 3rem;
+            z-index: 10;
+            animation: scratch-motion 2s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scratch-motion {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+            20% { opacity: 1; }
+            50% { transform: translate(-50px, 30px) rotate(-20deg); }
+            80% { opacity: 1; }
+            100% { transform: translate(-10px, 10px) rotate(0deg); opacity: 0; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="page-title">
+        יש לך הפתעה שמחכה...<br>
+        <span style="font-size: 1rem; opacity: 0.8;">(נסו לגרד את הכרטיס)</span>
+    </div>
+
+    <div class="container" id="cardContainer">
+        <!-- The Result underneath -->
+        <div class="hidden-content">
+            <h2>זכית בגדול!</h2>
+            <div class="icon-group">
+                🏡🍷🧖‍♀️
+            </div>
+            <div class="details">
+                <strong>אירה אוגיאנקו</strong>,<br>
+                ארזנו לך סופ"ש מפנק.<br>
+                רק אנחנו, ג'קוזי ושקט.
+            </div>
+            <div class="date-box">
+                01/01/2026
+            </div>
+            <div class="note">
+                *נא להכין מצב רוח רגוע
+            </div>
+        </div>
+
+        <!-- The Scratch Surface -->
+        <canvas id="scratchCanvas"></canvas>
+        
+        <!-- Animated Hand Hint -->
+        <div class="hand-hint" id="handHint">👆</div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('scratchCanvas');
+        const context = canvas.getContext('2d');
+        const container = document.getElementById('cardContainer');
+        const handHint = document.getElementById('handHint');
+        
+        let isDrawing = false;
+        let scratchedPixels = 0;
+        let totalPixels = 0;
+        let completed = false;
+
+        // Initialize Canvas
+        function initCanvas() {
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+            totalPixels = canvas.width * canvas.height;
+
+            // Fill with Silver/Gold Gradient
+            const gradient = context.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#D4AF37'); // Gold
+            gradient.addColorStop(0.3, '#F3E5AB'); // Light Gold
+            gradient.addColorStop(0.6, '#C5A028'); // Dark Gold
+            gradient.addColorStop(1, '#D4AF37');
+            
+            context.fillStyle = gradient;
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add Pattern/Text overlay
+            context.fillStyle = "rgba(255, 255, 255, 0.2)";
+            for(let i=0; i<50; i++) {
+                context.beginPath();
+                context.arc(
+                    Math.random() * canvas.width, 
+                    Math.random() * canvas.height, 
+                    Math.random() * 20 + 5, 
+                    0, Math.PI*2
+                );
+                context.fill();
+            }
+
+            // Text on top
+            context.font = "bold 24px Arial";
+            context.fillStyle = "#5c4002";
+            context.textAlign = "center";
+            context.textBaseline = "middle";
+            context.fillText("לכבוד אירה", canvas.width/2, canvas.height/2 - 20);
+            context.font = "18px Arial";
+            context.fillText("גרדי כאן לגילוי ההפתעה", canvas.width/2, canvas.height/2 + 20);
+        }
+
+        // Scratch Logic
+        function scratch(x, y) {
+            if (completed) return;
+
+            context.globalCompositeOperation = 'destination-out';
+            context.beginPath();
+            context.arc(x, y, 25, 0, Math.PI * 2); // Brush size
+            context.fill();
+            
+            // Remove hint on first scratch
+            if (handHint.style.display !== 'none') {
+                handHint.style.display = 'none';
+            }
+
+            checkCompletion();
+        }
+
+        // Check if enough is revealed
+        function checkCompletion() {
+            // Optimization: Don't check every single pixel on every move, 
+            // but for this demo size it's okay, or use a counter.
+            // Here we'll just check periodically or assume after X moves.
+            // Proper way: getImageData (heavy operation). 
+            // Simplified "win" logic:
+            
+            scratchedPixels++;
+            // Roughly 200 "move" events is usually enough to clear most of the center
+            if (scratchedPixels > 150 && !completed) {
+                finishScratching();
+            }
+        }
+
+        function finishScratching() {
+            completed = true;
+            canvas.classList.add('fade-out');
+            
+            // Celebration Confetti
+            setTimeout(() => {
+                createConfetti();
+            }, 500);
+        }
+
+        // Event Listeners
+        const getPos = (e) => {
+            const rect = canvas.getBoundingClientRect();
+            let clientX, clientY;
+            
+            if(e.changedTouches) {
+                clientX = e.changedTouches[0].clientX;
+                clientY = e.changedTouches[0].clientY;
+            } else {
+                clientX = e.clientX;
+                clientY = e.clientY;
+            }
+            
+            return {
+                x: clientX - rect.left,
+                y: clientY - rect.top
+            };
+        };
+
+        ['mousedown', 'touchstart'].forEach(evt => {
+            canvas.addEventListener(evt, (e) => {
+                isDrawing = true;
+                const pos = getPos(e);
+                scratch(pos.x, pos.y);
+                e.preventDefault(); // Prevent scrolling on touch
+            });
+        });
+
+        ['mousemove', 'touchmove'].forEach(evt => {
+            canvas.addEventListener(evt, (e) => {
+                if (isDrawing) {
+                    const pos = getPos(e);
+                    scratch(pos.x, pos.y);
+                    e.preventDefault();
+                }
+            });
+        });
+
+        ['mouseup', 'touchend'].forEach(evt => {
+            document.body.addEventListener(evt, () => {
+                isDrawing = false;
+            });
+        });
+
+        // Simple Confetti
+        function createConfetti() {
+            for(let i=0; i<50; i++) {
+                const conf = document.createElement('div');
+                conf.innerText = ['🎉', '❤️', '🛁'][Math.floor(Math.random() * 3)];
+                conf.style.position = 'fixed';
+                conf.style.left = Math.random() * 100 + 'vw';
+                conf.style.top = '-50px';
+                conf.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                conf.style.animation = `fall ${Math.random() * 2 + 2}s linear forwards`;
+                document.body.appendChild(conf);
+            }
+        }
+
+        // Add confetti style dynamically
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = `
+            @keyframes fall {
+                to { transform: translateY(110vh) rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+
+        // Init
+        window.onload = initCanvas;
+        window.onresize = initCanvas; // Reset on resize for simplicity
+
+    </script>
+</body>
+</html>
