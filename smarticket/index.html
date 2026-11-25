@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>SmarTicket | מערכת חכמה למכירת כרטיסים ומנויים</title>
+  <meta name="description" content="SmarTicket – מערכת חכמה אחת למכירת כרטיסים ומנויים לארגוני תרבות, פנאי, רשויות וספורט. מכירה בכל הערוצים, ניהול מנויים, בקרת כניסה ודוחות בזמן אמת." />
+  <meta name="theme-color" content="#070B14" />
+
+  <meta property="og:title" content="SmarTicket – מערכת חכמה אחת שמקיפה את כל צרכי הארגון שלך" />
+  <meta property="og:description" content="מכירה בכל הערוצים, ניהול מנויים, בקרת כניסה ודוחות בזמן אמת – בתקן ISO/IEC 27001." />
+  <meta property="og:locale" content="he_IL" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top">
+    <div class="container header__inner">
+      <a href="#top" class="brand" aria-label="SmarTicket - סמארטיקט, חזרה לראש העמוד">
+        <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2563EB" />
+              <stop offset="1" stop-color="#06B6D4" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#brandGrad)" d="M8 6h24a4 4 0 0 1 4 4v6a4 4 0 0 0 0 8v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-6a4 4 0 0 0 0-8v-6a4 4 0 0 1 4-4z" />
+          <path d="M13.5 20.5l4.2 4.2 8.8-9.4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span class="brand__text">
+          <span class="brand__name">Smar<b>Ticket</b></span>
+          <span class="brand__he">סמארטיקט</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="ניווט ראשי">
+        <ul>
+          <li><a href="#advantages">יתרונות</a></li>
+          <li><a href="#industries">ענפים</a></li>
+          <li><a href="#numbers">במספרים</a></li>
+        </ul>
+        <div class="main-nav__mobile-cta">
+          <a href="#contact" class="btn btn--primary" data-scroll-to="#contact">תיאום הדגמה</a>
+          <a href="tel:0722720770" class="phone-link">072-2720770</a>
+        </div>
+      </nav>
+
+      <div class="header__actions">
+        <a href="tel:0722720770" class="phone-link phone-link--header" aria-label="התקשרו אלינו: 072-2720770">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+          <span>072-2720770</span>
+        </a>
+        <a href="#contact" class="btn btn--primary btn--glow" data-scroll-to="#contact">תיאום הדגמה</a>
+        <button class="nav-toggle" id="navToggle" aria-controls="mainNav" aria-expanded="false" aria-label="פתיחת תפריט">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ SCROLLYTELLING ============ -->
+    <div class="story" aria-label="הסיפור של SmarTicket">
+
+      <!-- Scene 1: The operational pain -->
+      <section class="scene scene--1" id="scene1" data-scene="chaos" aria-labelledby="s1-title">
+        <div class="scene__stage">
+          <video class="scene__video"
+                 data-src="videos/scene1_chaos.mp4"
+                 data-src-mobile="videos/scene1_chaos_mobile.mp4"
+                 muted playsinline preload="auto" disablepictureinpicture aria-hidden="true" tabindex="-1"></video>
+          <div class="scene__fallback fb-chaos" aria-hidden="true">
+            <div class="fb-chaos__grid"></div>
+            <div class="fb-chaos__queue">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="fb-chaos__alerts">
+              <span>שגיאת סנכרון</span><span>הקופה עמוסה</span><span>תור בכניסה</span><span>אין זמינות</span><span>שרת לא מגיב</span>
+            </div>
+          </div>
+          <div class="scene__shade"></div>
+
+          <div class="scene__content scene__content--center">
+            <span class="eyebrow s1-eyebrow">ניהול כרטוס בארגון שלך</span>
+            <h1 class="display s1-title" id="s1-title">מכירת כרטיסים לא צריכה להרגיש כמו <span class="text-grad-warn">כאוס תפעולי.</span></h1>
+            <p class="lead s1-sub">עומס בקופות, תורים בכניסה ומערכות שלא מדברות אחת עם השנייה עולים לארגון שלך בזמן, בכסף ובחוויית הקהל.</p>
+          </div>
+
+          <div class="scroll-hint" aria-hidden="true">
+            <span>גללו כדי לגלות</span>
+            <i class="scroll-hint__mouse"><i></i></i>
+          </div>
+        </div>
+      </section>
+
+      <!-- Scene 2: Bottlenecks -->
+      <section class="scene scene--2" id="scene2" data-scene="transition" aria-labelledby="s2-title">
+        <div class="scene__stage">
+          <video class="scene__video"
+                 data-src="videos/scene2_transition.mp4"
+                 data-src-mobile="videos/scene2_transition_mobile.mp4"
+                 muted playsinline preload="auto" disablepictureinpicture aria-hidden="true" tabindex="-1"></video>
+          <div class="scene__fallback fb-stream" aria-hidden="true">
+            <div class="fb-stream__tunnel"></div>
+            <div class="fb-stream__lines"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="scene__shade"></div>
+
+          <div class="scene__content">
+            <h2 class="s2-title" id="s2-title"><span class="eyebrow">צווארי הבקבוק בניהול אירועים</span></h2>
+            <div class="pain-cards">
+              <article class="glass-card pain-card pain-card--1">
+                <span class="pain-card__num">01</span>
+                <span class="pain-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 18h4"/><path d="M4 8 2 6m18 2 2-2"/></svg>
+                </span>
+                <p>מערכות כרטוס מיושנות שמגבילות את המכירות באונליין ובמובייל</p>
+              </article>
+              <article class="glass-card pain-card pain-card--2">
+                <span class="pain-card__num">02</span>
+                <span class="pain-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M3 20h18"/><rect x="5" y="11" width="3" height="6" rx=".5"/><rect x="10.5" y="7" width="3" height="10" rx=".5"/><rect x="16" y="4" width="3" height="13" rx=".5"/><path d="m2 2 20 20" stroke-opacity=".9"/></svg>
+                </span>
+                <p>חוסר שליטה בזמן אמת על תפוסת אולמות, מנויים והנחות</p>
+              </article>
+              <article class="glass-card pain-card pain-card--3">
+                <span class="pain-card__num">03</span>
+                <span class="pain-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6M12 2v3"/></svg>
+                </span>
+                <p>תמיכה טכנית איטית בדיוק ברגע שהאירוע מתחיל</p>
+              </article>
+            </div>
+            <div class="scene-progress" aria-hidden="true"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Scene 3: The solution -->
+      <section class="scene scene--3" id="scene3" data-scene="solution" aria-labelledby="s3-title">
+        <div class="scene__stage">
+          <video class="scene__video"
+                 data-src="videos/scene3_solution.mp4"
+                 data-src-mobile="videos/scene3_solution_mobile.mp4"
+                 muted playsinline preload="auto" disablepictureinpicture aria-hidden="true" tabindex="-1"></video>
+          <div class="scene__fallback fb-dash" aria-hidden="true">
+            <div class="fb-dash__screen">
+              <div class="fb-dash__bar"><i></i><i></i><i></i></div>
+              <div class="fb-dash__body">
+                <div class="fb-dash__side"><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="fb-dash__main">
+                  <div class="fb-dash__kpis"><b></b><b></b><b></b><b></b></div>
+                  <div class="fb-dash__chart">
+                    <i style="--h:35%"></i><i style="--h:52%"></i><i style="--h:44%"></i><i style="--h:68%"></i><i style="--h:60%"></i><i style="--h:82%"></i><i style="--h:74%"></i><i style="--h:92%"></i>
+                  </div>
+                  <div class="fb-dash__seats"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="scene__shade scene__shade--solution"></div>
+
+          <div class="scene__content scene__content--center">
+            <span class="eyebrow s3-eyebrow">הפתרון</span>
+            <h2 class="display s3-title" id="s3-title"><span class="text-grad">SmarTicket</span> – מערכת חכמה אחת שמקיפה את כל צרכי הארגון שלך.</h2>
+            <p class="lead s3-sub">מכירה בכל הערוצים, ניהול מנויים, בקרת כניסה ודוחות בזמן אמת – בממשק מהיר, גמיש ומאובטח בתקן ISO/IEC 27001.</p>
+            <div class="s3-cta">
+              <a href="#contact" class="btn btn--primary btn--lg btn--glow" data-scroll-to="#contact">
+                לתיאום הדגמה חיה
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ NUMBERS ============ -->
+    <section class="section numbers" id="numbers" aria-labelledby="numbers-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="eyebrow">ניסיון שמדבר בעד עצמו</span>
+          <h2 class="section__title" id="numbers-title">SmarTicket במספרים</h2>
+        </header>
+        <div class="stats">
+          <div class="stat reveal">
+            <div class="stat__value"><span class="counter" data-target="20">0</span><span class="stat__plus">+</span></div>
+            <p class="stat__label">שנות פעילות וניסיון מוכח</p>
+          </div>
+          <div class="stat reveal">
+            <div class="stat__value"><span class="counter" data-target="350">0</span><span class="stat__plus">+</span></div>
+            <p class="stat__label">ארגונים ולקוחות מרוצים</p>
+          </div>
+          <div class="stat reveal">
+            <div class="stat__value"><span class="counter" data-target="145000">0</span><span class="stat__plus">+</span></div>
+            <p class="stat__label">אירועים מנוהלים בשנה</p>
+          </div>
+          <div class="stat reveal">
+            <div class="stat__value"><span class="counter" data-target="25000000">0</span><span class="stat__plus">+</span></div>
+            <p class="stat__label">כרטיסים בשנה</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CLIENTS ============ -->
+    <section class="section clients" id="clients" aria-labelledby="clients-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 class="section__title" id="clients-title">תראו מי כבר סומכים עלינו</h2>
+        </header>
+      </div>
+      <div class="ticker reveal" aria-label="לקוחות SmarTicket">
+        <ul class="ticker__track">
+          <li class="client-logo"><span class="client-logo__mark">מי</span>מוזיאון ישראל ירושלים</li>
+          <li class="client-logo"><span class="client-logo__mark">תב</span>תיאטרון באר שבע</li>
+          <li class="client-logo"><span class="client-logo__mark">את</span>אוניברסיטת תל אביב</li>
+          <li class="client-logo"><span class="client-logo__mark">תצ</span>תיאטרון הצפון</li>
+          <li class="client-logo"><span class="client-logo__mark">אנו</span>אנו - מוזיאון העם היהודי</li>
+          <li class="client-logo"><span class="client-logo__mark">קב</span>קומדי בר</li>
+          <li class="client-logo"><span class="client-logo__mark">ער</span>עיריית רעננה</li>
+          <li class="client-logo"><span class="client-logo__mark">כב</span>כיוונים באר שבע</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ INDUSTRIES ============ -->
+    <section class="section industries" id="industries" aria-labelledby="industries-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="eyebrow">ענפים</span>
+          <h2 class="section__title" id="industries-title">פתרון ייעודי לכל ענף</h2>
+          <p class="section__sub">מערכת אחת, מותאמת בדיוק לאופן שבו הארגון שלך מוכר, מנהל ומקבל קהל.</p>
+        </header>
+
+        <div class="industry-grid">
+          <article class="glass-card industry-card reveal" tabindex="0">
+            <span class="industry-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16v5a8 8 0 0 1-16 0z"/><path d="M8.5 8.5h.01M15.5 8.5h.01"/><path d="M9 12.5a4 4 0 0 0 6 0"/></svg>
+            </span>
+            <h3>תיאטראות והיכלי תרבות</h3>
+            <p>ניהול מנויים, מפות הושבה ומופעים.</p>
+          </article>
+          <article class="glass-card industry-card reveal" tabindex="0">
+            <span class="industry-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 21h18M4 10h16M12 3l9 5H3z"/><path d="M6 10v8M10 10v8M14 10v8M18 10v8"/></svg>
+            </span>
+            <h3>מוזיאונים ומרכזי מבקרים</h3>
+            <p>כרטוס לפי שעות, קבוצות ומדריכים.</p>
+          </article>
+          <article class="glass-card industry-card reveal" tabindex="0">
+            <span class="industry-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 21h18"/><rect x="5" y="9" width="6" height="12"/><rect x="13" y="3" width="6" height="18"/><path d="M7.5 12h1M7.5 15h1M15.5 6h1M15.5 9h1M15.5 12h1M15.5 15h1"/></svg>
+            </span>
+            <h3>גופים מוניציפאליים</h3>
+            <p>מערכת מטרייה עירונית רב-מחלקתית עם הרשאות.</p>
+          </article>
+          <article class="glass-card industry-card reveal" tabindex="0">
+            <span class="industry-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="7"/><path d="M12 3v14M5 10h14M7 5l10 10M17 5 7 15"/><path d="M9 21h6M12 17v4"/></svg>
+            </span>
+            <h3>אטרקציות ופנאי</h3>
+            <p>פארקים, גני חיות וניהול זמינות ומבצעים.</p>
+          </article>
+          <article class="glass-card industry-card reveal" tabindex="0">
+            <span class="industry-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m12 7 4 3-1.5 4.5h-5L8 10z"/><path d="M12 3v4M16 10l4.5-1.5M14.5 14.5l2.5 4M9.5 14.5 7 18.5M8 10 3.5 8.5"/></svg>
+            </span>
+            <h3>אירועי ספורט</h3>
+            <p>מכירת מנויים, סריקה מהירה ודוחות לאצטדיונים ואולמות.</p>
+          </article>
+          <article class="glass-card industry-card reveal" tabindex="0">
+            <span class="industry-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </span>
+            <h3>פסטיבלים ואירועים</h3>
+            <p>ניהול התניות, עומסים ובקרת כניסה בזמן אמת.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ADVANTAGES ============ -->
+    <section class="section advantages" id="advantages" aria-labelledby="advantages-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="eyebrow">למה SmarTicket</span>
+          <h2 class="section__title" id="advantages-title">היתרונות שלנו</h2>
+        </header>
+        <div class="adv-grid">
+          <article class="adv reveal">
+            <span class="adv__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="2" y="4" width="14" height="10" rx="1.5"/><path d="M6 18h6M9 14v4"/><rect x="17" y="8" width="5" height="12" rx="1.2"/></svg>
+            </span>
+            <h3>למכור בכל הערוצים</h3>
+            <p>חנות מקוונת, אפליקציה לנייד ונקודות מכירה בממשק אחיד.</p>
+          </article>
+          <article class="adv reveal">
+            <span class="adv__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+            </span>
+            <h3>קל ופשוט. מתקדם כשנדרש</h3>
+            <p>חוויית משתמש מהירה ומדויקת בכל מכשיר.</p>
+          </article>
+          <article class="adv reveal">
+            <span class="adv__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="2.5" y="13" width="4" height="6" rx="1.5"/><rect x="17.5" y="13" width="4" height="6" rx="1.5"/><path d="M19.5 19a4 4 0 0 1-4 3H13"/></svg>
+            </span>
+            <h3>תמיכה אנושית 24/7</h3>
+            <p>צוותי תמיכה בזמן אמת שמלווים אתכם לאורך כל האירוע.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+        <div class="contact__intro reveal">
+          <span class="eyebrow">בואו נדבר</span>
+          <h2 class="section__title" id="contact-title">נשמח להכיר אתכם מקרוב!</h2>
+          <p class="section__sub">השאירו פרטים ונציג שלנו יחזור אליכם לתיאום הדגמה חיה של המערכת, מותאמת לארגון שלכם.</p>
+          <a href="tel:0722720770" class="contact__phone">
+            <span class="contact__phone-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+            </span>
+            <span>
+              <small>מעדיפים לדבר עכשיו?</small>
+              <strong>072-2720770</strong>
+            </span>
+          </a>
+          <div class="iso-badge iso-badge--inline">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+            <span>מאובטח בתקן ISO/IEC 27001:2022</span>
+          </div>
+        </div>
+
+        <form class="glass-card contact-form reveal" id="contactForm" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="f-name">שם מלא <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-name" name="fullName" type="text" autocomplete="name" required aria-required="true" />
+              <span class="field__error" role="alert"></span>
+            </div>
+            <div class="field">
+              <label for="f-org">שם הארגון <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-org" name="organization" type="text" autocomplete="organization" required aria-required="true" />
+              <span class="field__error" role="alert"></span>
+            </div>
+            <div class="field">
+              <label for="f-phone">מספר טלפון <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required aria-required="true" />
+              <span class="field__error" role="alert"></span>
+            </div>
+            <div class="field">
+              <label for="f-email">אימייל <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" dir="ltr" required aria-required="true" />
+              <span class="field__error" role="alert"></span>
+            </div>
+            <div class="field field--full">
+              <label for="f-sector">ענף <span class="req" aria-hidden="true">*</span></label>
+              <div class="select-wrap">
+                <select id="f-sector" name="sector" required aria-required="true">
+                  <option value="" selected disabled>בחרו ענף</option>
+                  <option value="theater">תיאטרון</option>
+                  <option value="museum">מוזיאון</option>
+                  <option value="municipality">עירייה</option>
+                  <option value="attraction">אטרקציה</option>
+                  <option value="sport">ספורט</option>
+                  <option value="festival">פסטיבל</option>
+                  <option value="other">אחר</option>
+                </select>
+              </div>
+              <span class="field__error" role="alert"></span>
+            </div>
+            <div class="field field--full field--check">
+              <label class="check">
+                <input type="checkbox" name="consent" id="f-consent" required aria-required="true" />
+                <span class="check__box" aria-hidden="true"></span>
+                <span>אני מאשר/ת קבלת עדכונים ודיוור מ-SmarTicket, וקראתי את <a href="#" class="link">מדיניות הפרטיות</a>.</span>
+              </label>
+              <span class="field__error" role="alert"></span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn--primary btn--lg btn--block btn--glow">
+            <span class="btn__label">שליחה ותיאום הדגמה</span>
+            <span class="btn__spinner" aria-hidden="true"></span>
+          </button>
+          <p class="form-note">או התקשרו ישירות: <a href="tel:0722720770" class="link" dir="ltr">072-2720770</a></p>
+
+          <div class="form-success" role="status" aria-live="polite" hidden>
+            <span class="form-success__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+            <h3>תודה! הפרטים התקבלו.</h3>
+            <p>נציג SmarTicket יחזור אליכם בהקדם לתיאום ההדגמה.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#top" class="brand brand--footer" aria-label="SmarTicket - סמארטיקט">
+          <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true">
+            <path fill="url(#brandGrad)" d="M8 6h24a4 4 0 0 1 4 4v6a4 4 0 0 0 0 8v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-6a4 4 0 0 0 0-8v-6a4 4 0 0 1 4-4z" />
+            <path d="M13.5 20.5l4.2 4.2 8.8-9.4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="brand__text">
+            <span class="brand__name">Smar<b>Ticket</b></span>
+            <span class="brand__he">סמארטיקט</span>
+          </span>
+        </a>
+        <p>מערכת חכמה למכירת כרטיסים ומנויים לארגוני תרבות, פנאי, רשויות וספורט.</p>
+      </div>
+
+      <div class="iso-badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+        <span><small>אבטחת מידע</small>ISO/IEC 27001:2022</span>
+      </div>
+
+      <nav class="footer__links" aria-label="קישורים משפטיים">
+        <a href="#">תנאי שימוש</a>
+        <a href="#">מדיניות פרטיות</a>
+        <a href="#">הצהרת נגישות</a>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> SmarTicket. כל הזכויות שמורות.</p>
+      <a href="tel:0722720770" dir="ltr">072-2720770</a>
+    </div>
+  </footer>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
